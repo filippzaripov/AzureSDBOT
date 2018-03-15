@@ -73,12 +73,26 @@ bot.dialog('helper',[
 		function(session){
 			builder.Prompts.text(session, "/help - help.  \n" +
 											"/incident -  raise incident  \n" +
-											"/change - raise change request");
+											"/change - raise change request  \n" + 
+											"/resetazure - crush it polnost'y");
 		}
 	]).triggerAction({
 		matches: /^\/help$/i
 	});
 
+bot.dialog('resetazure', [
+	function(session){
+		session.send('Please wait...');
+		session.delay(2000);
+		session.send('Little bit more...')
+		session.delay(3000);
+		session.send('Congratulations!  \nAzure was destroyed');
+		session.send('This will be reported to Bill Gates');
+	}
+]).triggerAction({
+		matches: /^\/resetazure$/i
+});	;	
+	
 bot.dialog('incident', [
 	function(session){
 		requestType = 'Incident';
