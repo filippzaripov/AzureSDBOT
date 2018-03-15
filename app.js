@@ -71,8 +71,8 @@ var bot = new builder.UniversalBot(connector, function (session) {
 
 bot.dialog('helper',[
 		function(session){
-			builder.Prompts.text(session, "/help - help.\n" +
-											"/incident -  raise incident\n" +
+			builder.Prompts.text(session, "/help - help.  \n" +
+											"/incident -  raise incident  \n" +
 											"/change - raise change request");
 		}
 	]).triggerAction({
@@ -103,15 +103,16 @@ bot.dialog('incident', [
 	function(session, results){
 		contacts = results.response;
 		builder.Prompts.text(session, 
-		"Here is results of the request:<br/> OS: " + osOrService + 
-		"<br/>Server/Service Name: " + serverServiceName + 
-		"<br/>Contacts: " + contacts + 
-		"<br/>Comment: " + comment);
+		"Here is results of the request:  \nOS: " + osOrService + 
+		"  \nServer/Service Name: " + serverServiceName + 
+		"  \nContacts: " + contacts + 
+		"  \nComment: " + comment);
 		session.send("Please enter 'yes' if everything is correct. Or something if it's not");
 	},
 	function(session, results){	
-		if(results.response == 'yes'){
-			builder.Prompts.text(session,"Your request has been created.<BR/>Please wait for email with confirmation.");
+	var answer = results.response;
+		if(answer.toLowerCase() === 'yes'){
+			builder.Prompts.text(session,"Your request has been created.  \nPlease wait for email with confirmation.");
 			sendEmail();
 			session.endDialog();
 		}else{
