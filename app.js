@@ -11,7 +11,7 @@ var requestType, osOrService, availability, priority, serverServiceName, ip, com
 var smtp = 'smtp.yandex.ru';
 var userMail = 'azure.notifications@yandex.ru';
 var userPass = 'ilovemicrosoftazure';
-var sendTo = 'philippsbucket@gmail.com';
+var sendTo = 'itsm.tool@outlook.com';
 
 // Setup Restify Server
 var server = restify.createServer();
