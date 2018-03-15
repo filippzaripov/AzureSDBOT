@@ -24,7 +24,6 @@ var connector = new builder.ChatConnector(
 {
     appId: process.env.MicrosoftAppId,
     appPassword: process.env.MicrosoftAppPassword,
-	openIdMetadata: process.env.BotOpenIdMetadata
 });
 
 //send Email
@@ -72,9 +71,9 @@ var bot = new builder.UniversalBot(connector, function (session) {
 
 bot.dialog('helper',[
 		function(session){
-			builder.Prompts.text(session, "/help - help." +
-											"<BR/>/incident -  raise incident" +
-											"<BR/>/change - raise change request");
+			builder.Prompts.text(session, "/help - help.\n" +
+											"/incident -  raise incident\n" +
+											"/change - raise change request");
 		}
 	]).triggerAction({
 		matches: /^\/help$/i
