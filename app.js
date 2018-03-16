@@ -88,6 +88,7 @@ bot.dialog('resetazure', [
 		session.delay(3000);
 		session.send('Congratulations!  \nAzure was destroyed');
 		session.send('This will be reported to Bill Gates');
+		session.endConversation();
 	}
 ]).triggerAction({
 		matches: /^\/resetazure$/i
