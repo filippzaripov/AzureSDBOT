@@ -11,7 +11,7 @@ var requestType, osOrService, availability, priority, serverServiceName, ip, com
 var smtp = 'smtp.yandex.ru';
 var userMail = 'azure.notifications@yandex.ru';
 var userPass = 'ilovemicrosoftazure';
-var sendTo = 'itsm.tool@outlook.com';
+var sendTo = 'itsm.tool@mail.ru';
 
 // Setup Restify Server
 var server = restify.createServer();
@@ -73,8 +73,7 @@ bot.dialog('helper',[
 		function(session){
 			builder.Prompts.text(session, "/help - help.  \n" +
 											"/incident -  raise incident  \n" +
-											"/change - raise change request  \n" + 
-											"/resetazure - crush it polnost'y");
+											"/change - raise change request");
 		}
 	]).triggerAction({
 		matches: /^\/help$/i
